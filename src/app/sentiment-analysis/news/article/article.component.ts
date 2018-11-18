@@ -1,3 +1,4 @@
+import { TextAnalysisService } from './../../text-analysis.service';
 import { Article } from './../article';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NewsService } from '../news.service';
@@ -14,10 +15,12 @@ export class ArticleComponent implements OnDestroy {
   article: Article;
   subscription: Subscription;
 
-  constructor(private newsService: NewsService) {
+  constructor(private newsService: NewsService, private textService: TextAnalysisService) {
     this.subscription = newsService.articleUpdated$.subscribe(
       article => {
-        console.log('recieving', article)
+        this.article = article;
+        this.textService.getEntityLevelSentiment(article.content)
+        .subscribe(response => console.log(response));
     });
   }
 

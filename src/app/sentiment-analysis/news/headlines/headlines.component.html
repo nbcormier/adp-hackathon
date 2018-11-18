@@ -1,6 +1,6 @@
 <div class="headlines-title">
     <h2>Headlines</h2>
-    <!-- <span *ngIf="category.id != 'all'" class="label label-{{category.color}}">{{category.display}}</span> -->
+    <span class="label label-{{category.color}}">{{category.display}}</span>
 </div>
 <div class="card-columns">
     <div *ngFor="let article of articles$ | async" class="card">
