@@ -1,5 +1,9 @@
+<div class="headlines-title">
+    <h2>Headlines</h2>
+    <!-- <span *ngIf="category.id != 'all'" class="label label-{{category.color}}">{{category.display}}</span> -->
+</div>
 <div class="card-columns">
-    <div *ngFor="let article of headlines.articles" class="card">
+    <div *ngFor="let article of articles$ | async" class="card">
         <div class="card-img">
             <img [src]="article.urlToImage" alt="No Image Provided :(">
         </div>
@@ -12,7 +16,7 @@
             </p>
         </div>
         <div class="card-footer">
-          <button [routerLink]="['../../article']" (click)="announce()" class="btn btn-sm btn-link">Analyze</button>
+          <button [routerLink]="['../../article']" (click)="updateArticle(article)" class="btn btn-sm btn-link">Analyze</button>
       </div>
     </div>
   </div>

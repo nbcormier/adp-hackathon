@@ -12,7 +12,7 @@ const routes: Routes = [{
       path: '', redirectTo: 'headlines/all'
     },
     {
-      path: 'headlines/:category',
+      path: 'headlines/:categoryId',
       component: HeadlinesComponent
     },
     {

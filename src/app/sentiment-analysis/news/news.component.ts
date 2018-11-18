@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsService } from './news.service';
 
 @Component({
   selector: 'app-news',
@@ -6,35 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.scss']
 })
 export class NewsComponent implements OnInit {
+  categories = [];
 
-  constructor() { }
+  constructor(private newsService: NewsService) { }
 
   ngOnInit() {
+    this.categories = this.newsService.getCategories();
   }
-
-  categories = [{
-    id: 'all',
-    display: 'All'
-  }, {
-    id: 'business',
-    display: 'Business'
-  }, {
-    id: 'entertainment',
-    display: 'Entertainment'
-  }, {
-    id: 'general',
-    display: 'General'
-  }, {
-    id: 'health',
-    display: 'Health'
-  }, {
-    id: 'science',
-    display: 'Science'
-  }, {
-    id: 'sports',
-    display: 'Sports'
-  }, {
-    id: 'technology',
-    display: 'Technology'
-  }]
 }

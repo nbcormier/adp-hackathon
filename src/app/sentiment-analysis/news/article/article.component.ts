@@ -1,3 +1,4 @@
+import { Article } from './../article';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NewsService } from '../news.service';
 
@@ -10,14 +11,13 @@ import { Subscription }   from 'rxjs';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnDestroy {
-  article: any;
+  article: Article;
   subscription: Subscription;
 
   constructor(private newsService: NewsService) {
-    this.subscription = newsService.missionAnnounced$.subscribe(
-      mission => {
-        console.log('recieving', mission)
-        this.article = mission;
+    this.subscription = newsService.articleUpdated$.subscribe(
+      article => {
+        console.log('recieving', article)
     });
   }
 
