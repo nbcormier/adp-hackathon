@@ -14,19 +14,24 @@ import { Subscription }   from 'rxjs';
 export class ArticleComponent implements OnDestroy {
   article: Article;
   subscription: Subscription;
+  entities = [];
+  contentModalOpen = false;
 
   constructor(private newsService: NewsService, private textService: TextAnalysisService) {
     this.subscription = newsService.articleUpdated$.subscribe(
       article => {
         this.article = article;
         this.textService.getEntityLevelSentiment(article.content)
-        .subscribe(response => console.log(response));
+        .subscribe(response => this.entities = response);
     });
+  }
+
+  openContentModal() {
+    this.contentModalOpen = true;
   }
 
   ngOnDestroy() {
     // prevent memory leak when component destroyed
     this.subscription.unsubscribe();
   }
-
 }

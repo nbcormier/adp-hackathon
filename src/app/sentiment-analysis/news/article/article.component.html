@@ -1,6 +1,6 @@
 <div class="clr-row">
     <div class="clr-col-sm-12">
-        <h2><clr-icon shape="wand"></clr-icon> Text Analysis</h2>
+        <h2>Text Analysis</h2>
     </div>
     <div class="clr-col-sm-12 clr-col-md-6">
         <div class="card">
@@ -20,11 +20,42 @@
                   <strong>Source:</strong> {{article.source.name ? article.source.name : 'unknown'}}</li>
             </ul>
             <div class="card-footer">
-                <a [attr.href]="article.url" target="_blank">View Source Article</a>
+                <a class="btn btn-sm btn-link" [attr.href]="article.url" target="_blank">Source Article</a>
+                <button class="btn btn-sm btn-link" (click)="openContentModal()">Raw Content</button>
             </div>
         </div>
     </div>
     <div class="clr-col-sm-12 clr-col-md-6">
-      
+        <div class="card">
+            <div class="card-header">
+                Analysis Results
+            </div>
+            <div class="card-block">
+                <div *ngIf="!entities.length" class="progress top loop">
+                    <progress></progress>
+                </div>
+                <h4 class="card-title">Entities</h4>
+                <p class="card-text">
+                These are entities that were extracted from the source text.
+                </p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li *ngFor="let entity of entities" class="list-group-item">
+                  {{entity.text}}
+                  <span *ngIf="entity.type" class="label" [ngClass]="{'label-blue': entity.type === 'person', 'label-purple': entity.type === 'organization', 'label-orange': entity.type === 'location'}">{{entity.type}}</span>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
+
+<clr-modal [(clrModalOpen)]="contentModalOpen" [clrModalSize]="'lg'">
+    <h3 class="modal-title">Raw Content</h3>
+    <div class="modal-body">
+        <p>{{article.content}}</p>
+        <p>This is truncated to 260 chars for Developer plan users (NewsAPI)</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="contentModalOpen = false">Close</button>
+    </div>
+</clr-modal>
