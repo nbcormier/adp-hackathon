@@ -39,6 +39,17 @@ In the end, even though I didn't achieve the original concept to the fullest ext
 - After successful Postman testing, Aylien API could not be used from within app code due to CORS
 - Sentiment analysis had to removed for the scope of this challenge (substitute entity 'parsing')
 
+### Todo/Improvements
+- Contextual error handling
+- Global error handling
+- API result caching
+- Move API authentication from services to HTTP interceptors
+- Use a query route parameter for news search page
+- Unit testing
+- End-to-end testing
+- Expand text analysis capabilities
+- Extend content sources (e.g. Twitter)
+
 ## Technical Details
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.

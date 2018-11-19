@@ -1,6 +1,6 @@
 <form clrForm id="search-form" (ngSubmit)="onSubmit()" #searchForm="ngForm">
   <clr-input-container>
-    <input clrInput placeholder="i.e. Bitcoin" id="query" name="query" [(ngModel)]="query" required />
+    <input clrInput placeholder="e.g. Bitcoin" id="query" name="query" [(ngModel)]="query" required />
     <clr-control-helper>Enter a seach term</clr-control-helper>
     <clr-control-error>You must enter a search term</clr-control-error>
   </clr-input-container>
