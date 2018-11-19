@@ -7,9 +7,10 @@ import { SharedModule } from 'src/app/shared.module';
 import { NewsComponent } from './news.component';
 import { ArticleComponent } from './article/article.component';
 import { NewsService } from './news.service';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
-  declarations: [NewsComponent, HeadlinesComponent, ArticleComponent],
+  declarations: [NewsComponent, HeadlinesComponent, ArticleComponent, SearchComponent],
   imports: [
     CommonModule,
     NewsRoutingModule,

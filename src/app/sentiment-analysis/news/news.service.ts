@@ -39,6 +39,23 @@ export class NewsService {
     return {};
   }
 
+  searchNews(query: string, categoryId?: string): Observable<Article[]> {
+    const options = {
+      params: {
+        'apiKey': this.apiKey,
+        'category': categoryId ? categoryId : '',
+        'q': query
+      }
+    }
+
+    return this.http.get<Headlines>('https://newsapi.org/v2/everything', options)
+      .pipe(map(headlines => {
+        // only return articles
+        return headlines.articles;
+      })
+    );
+  }
+
   getHeadlines(categoryId?: string): Observable<Article[]> {
     if (categoryId === 'all') {
       // 'all' category is internal to this app
@@ -52,7 +69,7 @@ export class NewsService {
       }
     }
 
-    return of(this.articles);
+    //return of(this.articles);
 
     return this.http.get<Headlines>('https://newsapi.org/v2/top-headlines', options)
       .pipe(map(headlines => {

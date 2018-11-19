@@ -1,3 +1,4 @@
+import { SearchComponent } from './search/search.component';
 import { ArticleComponent } from './article/article.component';
 import { NewsComponent } from './news.component';
 import { HeadlinesComponent } from './headlines/headlines.component';
@@ -18,6 +19,10 @@ const routes: Routes = [{
     {
       path: 'article',
       component: ArticleComponent
+    },
+    {
+      path: 'search',
+      component: SearchComponent
     }
   ]
 }];

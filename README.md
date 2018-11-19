@@ -16,18 +16,20 @@ The concept of the application was to use natural language processing to analyze
 ### The Process
 The first challenge was to come up with a concept for the application. I started by browsing through a large list of public API's to find inspiration. One of the genres, natural language processros, drew my attention. After conidering other API's and concepts, I finally decided to go forward with natural language processing, using [Aylien](https://docs.aylien.com/).
 
-I knew I would need content to analyze. Therefore, I decided to try to incorporate another API. I thought analyzing Tweets would be interesting. I also thought analyzing news articles would be equally interesting. After doing more concentrated research, I decided to use the [Twitter API](https://developer.twitter.com/en/docs) and [News API](https://newsapi.org/). After signing up for development accounts and getting the API keys, I set about testing their capabilities in Postman.
+I knew I would need content to analyze. Therefore, I decided to try to incorporate another API. I thought analyzing Tweets would be interesting. I also thought analyzing news articles would be equally as interesting. After doing more concentrated research, I decided to use the [Twitter API](https://developer.twitter.com/en/docs) and [News API](https://newsapi.org/). After signing up for development accounts and getting the API keys, I set about testing their capabilities in Postman.
 
 In Postman, I was able to set up and successfully make all my intended API calls with Alyien. I was satisfied I could move forward with the Alyien API. 
 
-I then turned to Twitter. I immediately hit a road block. I intended to use the Twitter API to allow the user to search for users, and then get an analysis on Tweets from that account. However, using only [application level authentication](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only), the Twitter API does not allow searching for users. I decided to come back to researching the Twitter API and focus on incorporating news content.
+I then turned to Twitter. I immediately hit a road block. I intended to use the Twitter API to allow the user to search for Twitter users, and then get an analysis on Tweets from that account. However, using only [application level authentication](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only), the Twitter API does not allow searching for users. I decided to come back to researching the Twitter API and focus on incorporating news content.
 
 The News API was straightforward, so I began to layout my application. I used this challenge as an opportunity to work with the [Clarity Design System](https://vmware.github.io/clarity/) for the first time. After the application was scaffolded out and I was consuming the news content, I started to incorporate the Aylien language processing API. I met my second road block.
 
-Even though I had succeeded in making API calls from Postman, I could not make Aylien API calls from my app. The Aylien API does not support CORS, with no 'Access-Control-Allow-Origin' header present. I could not find a workaround suitable in the context of this challenge.
+Even though I had succeeded in making API calls from Postman, I could not make Aylien API calls from my app. The Aylien API does not support CORS, with no 'Access-Control-Allow-Origin' header present in their implementation. I could not find a workaround suitable in the context of this challenge.
 
 ### Roadblocks and Challenges
-- 
+- Coming up with a compelling application concept
+- Twitter API not (easily) supporting a core use case
+- After successful Postman testing, Aylien API could not be used from within app code due to CORS
 
 ## Technical Details
 
