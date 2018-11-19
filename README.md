@@ -1,6 +1,9 @@
 # AdpHackathon
+Create a brand new Angular app in one weekend.
+___
+by **Nicklaus Cormier**
 
-## Background
+## Motivation
  48 hour challenge to create an Angular application utilizing a public JSON API (for example https://github.com/toddmotto/public-apis).
  
 ### Requirements
@@ -24,12 +27,17 @@ I then turned to Twitter. I immediately hit a road block. I intended to use the 
 
 The News API was straightforward, so I began to layout my application. I used this challenge as an opportunity to work with the [Clarity Design System](https://vmware.github.io/clarity/) for the first time. After the application was scaffolded out and I was consuming the news content, I started to incorporate the Aylien language processing API. I met my second road block.
 
-Even though I had succeeded in making API calls from Postman, I could not make Aylien API calls from my app. The Aylien API does not support CORS, with no 'Access-Control-Allow-Origin' header present in their implementation. I could not find a workaround suitable in the context of this challenge.
+Even though I had succeeded in making API calls from Postman, I could not make Aylien API calls from my app. The Aylien API does not support CORS, with no 'Access-Control-Allow-Origin' header present in their implementation. I could not find a workaround suitable in the context of this challenge. Due to this issue, I attempted to find another suitable replacement.
+
+Although more limited in capabilities, I decided to use the [Cloudmersive](https://api.cloudmersive.com/) API. This API does not provide sentiment analysis, so instead of a full fledged sentiment anlaysis, I had to settle for simple entity extraction. Therefore, the app fell short of the intended usage, but does at least have some form of intelligent text parsing.
+
+In the end, even though I didn't achieve the original concept to the fullest extent, I still think the application is compelling and engaging to use. It serves as a good foundation for further exploration and development.
 
 ### Roadblocks and Challenges
 - Coming up with a compelling application concept
 - Twitter API not (easily) supporting a core use case
 - After successful Postman testing, Aylien API could not be used from within app code due to CORS
+- Sentiment analysis had to removed for the scope of this challenge (substitute entity 'parsing')
 
 ## Technical Details
 
